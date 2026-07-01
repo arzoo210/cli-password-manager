@@ -17,7 +17,7 @@ Python 3.14, cryptography (Fernet/AES-128-CBC + HMAC), argparse, pytest, JSON
 ## Getting Started
 
 ```bash
-git clone https://github.com/arzoo210/CLI-PASSWORD-MANAGER
+git clone https://github.com/arzoo210/cli-password-manager
 cd cli-password-manager
 python -m venv venv
 venv\Scripts\Activate.ps1   # Windows
@@ -46,7 +46,7 @@ python password_manager.py delete gmail
 
 ## Security Model
 
-Passwords are encrypted individually using Fernet symmetric encryption (AES-128-CBC + HMAC). The master key lives in `key.key` on your local machine and is never committed to the repo — without it, the encrypted data in `credentials.json` is completely unreadable. Usernames are stored as plaintext since they are not considered secret.
+Passwords are encrypted individually using Fernet symmetric encryption (AES-128-CBC + HMAC). The master key lives in `key.key` on your local machine and is never committed to the repo. Without the key the data is completely unreadable.
 
 
 ## Running Tests
@@ -57,19 +57,17 @@ pytest test_password_manager.py -v
 
 ## What I Learned
 
-- How symmetric encryption works in practice using Fernet (AES + HMAC), and why you separate key generation from the main program logic
-- How to build a real CLI with subcommands using Python's argparse module
-- How to structure a project with separation of concerns (encryption, storage, and CLI logic in separate files) and write unit tests with pytest
+- How symmetric encryption works in practice using Fernet (AES + HMAC).
+- How to build a real CLI with subcommands using Python's argparse module.
+- How to structure a project with separation of concerns (encryption, storage, and CLI logic in separate files) and write unit tests with pytest.
 
 ## File Structure
 
-```
 cli-password-manager/
-├── password_manager.py       # CLI entry point (argparse commands)
+├── password_manager.py      
 ├── crypto_utils.py           # Encryption/decryption logic (Fernet)
-├── storage.py                # JSON storage layer
-├── test_passwordmanager.py  # pytest test (7 tests)
-├── requirements.txt          # Project dependencies
-├── .gitignore                # Excludes key.key, credentials.json, venv
-└── README.md                 # This file
-```
+├── storage.py                
+├── test_passwordmanager.py 
+├── requirements.txt         
+├── .gitignore               
+└── README.md                 

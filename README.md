@@ -63,6 +63,7 @@ pytest test_password_manager.py -v
 
 ## File Structure
 
+```
 cli-password-manager/
 ├── password_manager.py      
 ├── crypto_utils.py           # Encryption/decryption logic (Fernet)
@@ -71,3 +72,4 @@ cli-password-manager/
 ├── requirements.txt         
 ├── .gitignore               
 └── README.md                 
+```
